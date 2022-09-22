@@ -1,0 +1,233 @@
+@use './base' as *;
+
+//Toggle button
+
+.toggle-container{
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+
+  .icon-moon{
+    height: 1.4rem;
+  }
+
+  button{
+    border: none;
+    background-color: white;
+    border-radius: 1.2rem;
+    width: 5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    position: relative;
+  }
+
+  button::after{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    height: 1.4rem;
+    width: 1.4rem;
+    transform: translateY(-50%) translateX(.5rem);
+    border-radius: 100%;
+    background-color: purple;
+    transition: transform .2s linear;
+  }
+
+  button.active::after{
+    transform: translateY(-50%) translateX(calc(5rem - 100% - .5rem));
+  }
+}
+
+
+.search-bar{
+  --side-padding: 3rem;
+
+  display: flex;
+  align-items: stretch;
+  background-color: white;
+  width: 100%;
+  height: 8rem;
+  margin: 0 auto;
+  border-radius: .5rem;
+  padding-right: var(--side-padding);
+  
+
+  .input-container{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: var(--side-padding);
+  }
+
+  .input-container:not(:first-child){
+    border-left: 1px solid rgb(200, 200, 200);
+  }
+
+  .search-input-container{
+    flex-grow: 2;
+  }
+
+  .location-input-container{
+    flex-grow: 1;
+  }
+
+  input{
+    height: 100%;
+    border: none;
+    font-size: 1.2rem;
+  }
+
+  input:focus{
+    outline: none;
+  }
+
+  input[type="text"]{
+    flex-grow: 1;
+  }
+
+  input[type="checkbox"]:selected{
+    background-color: rgb(99, 96, 250);
+  }
+
+  label{
+    font-size: 1.2rem;
+  }
+
+  button{
+    align-self: center;
+    width: 14rem;
+    height: 65%;
+    border: none;
+    border-radius: .5rem;
+    background-color: rgb(109, 107, 228);
+  }
+}
+
+
+.job-card{
+  --side-padding: 3.5rem;
+
+  background-color: white;
+  border-radius: .5rem;
+  padding: 4rem var(--side-padding);
+  position: relative;
+
+  .job-img-container{
+    position: absolute;
+    top: 0;
+    left: var(--side-padding);
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(220, 220, 220);
+    transform: translateY(-50%);
+    border-radius: 1.5rem;
+  }
+
+  .job-title{
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+
+  .job-location{  
+    margin-top: 4rem;
+    color: rgb(109, 107, 228);
+    font-weight: bold;
+  }
+}
+
+
+.company-banner{
+  display: flex;
+  width: min(80rem, 90%);
+  background-color: white;
+  border-radius: .5rem;
+  overflow: hidden;
+
+  .company-img-container{
+    width: 140px;
+    background-color: rgb(220, 220, 220);
+    align-self: stretch;
+  }
+
+  .company-info{
+    flex-grow: 1;
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .company-title{
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .company-link{
+    color: rgb(120, 120, 120);
+  }
+
+  button{
+    width: 14rem;
+    padding: 2rem;
+    border-radius: .6rem;
+    background-color: rgba(120, 118, 245, 0.185);
+  }
+}
+
+.job-details{
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: min(80rem, 90%);
+  background-color: white;
+  border-radius: .5rem;
+  overflow: hidden;
+  padding: 4rem;
+
+  .job-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .job-location{
+    color: rgb(109, 107, 228);
+    font-weight: bold;
+  }
+
+  h2{
+    font-size: 3rem;
+    margin: 1rem 0;
+  }
+
+  button{
+    width: 14rem;
+    padding: 2rem;
+    border-radius: .6rem;
+  }
+}
+
+.job-footer{
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+
+  .job-footer-content{
+    width: min(80rem, 90%);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h2{
+    font-size: 2rem;
+    margin-bottom: .5rem;
+  }
+
+  button{
+    width: 14rem;
+    padding: 2rem;
+    border-radius: .6rem;
+  }
+}
